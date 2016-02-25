@@ -1,7 +1,7 @@
 {"id_proyecto":"1", "nombre_directorio":"Calidad Te",
 		"urls":[
-		{"orden":"1", "url":"www.teamarket.cl"},
-		{"orden":"2", "url":"teamarketonline.com"},
-		{"orden":"3","url":"www.euromonitor.com/tea"}
+		{"orden":"1", "url":"http://www.teavivre.com"},
+		{"orden":"2", "url":"http://teamarketonline.com"},
+		{"orden":"3","url":"http://www.euromonitor.com/tea"}
 		]
 	}

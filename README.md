@@ -1,5 +1,5 @@
 # Enfoque Ponderado.#
-=========================================
+
 Lectura de un mensaje json escrito en un .txt para clasificar los documentos segun el Enfoque Ponderado
 
 

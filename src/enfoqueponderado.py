@@ -43,17 +43,24 @@ def palabrasvacias_stemming(cadena):
     cadena = stemming(cadena)
     return cadena
 
-def calcular_score(documento,consulta):
+def calcular_score_pattern(documento,consulta):
+    acierto_clave = 0
+    acierto_positivo = 0
+    acierto_negativo = 0
+
     diccionario_dominio = (open("Herramientas/diccionario_dominio.txt","r").read()).split()
-    for termino in documento.contenido:
+    for doc in documento.pattern.keywords(top=100):
         for termino_consulta in consulta:
-            if termino == termino_consulta:
-                documento.acierto_clave +=1
+            if doc[1] == termino_consulta:
+                acierto_clave += doc[0]
             else:
                 for termino_diccionario in diccionario_dominio:
-                    if termino == termino_diccionario:
-                        documento.acierto_positivo +=1
+                    if doc[1] == termino_diccionario:
+                        acierto_positivo += doc[0]
                     else:
-                        documento.acierto_negativo +=1
+                        acierto_negativo += doc[0]
 
-     
+    documento.acierto_clave = acierto_clave
+    documento.acierto_positivo = acierto_positivo
+    documento.acierto_negativo = acierto_negativo
+    documento.calcular_score()

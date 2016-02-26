@@ -1,7 +1,14 @@
 {"id_proyecto":"1", "nombre_directorio":"Calidad Te",
 		"urls":[
-		{"orden":"1", "url":"http://www.teavivre.com"},
-		{"orden":"2", "url":"http://teamarketonline.com"},
-		{"orden":"3","url":"http://www.euromonitor.com/tea"}
+		{"orden":"1", "url":"http://www.nbtea.co.uk"},
+		{"orden":"2", "url":"http://www.cupoftea.uk.com"},
+		{"orden":"3","url":"http://www.highteas.co.uk"},
+		{"orden":"4","url":"http://www.greysteas.co.uk/"},
+		{"orden":"5","url":"http://www.imperialteas.co.uk"},
+		{"orden":"6","url":"https://www.teapigs.co.uk/"},
+		{"orden":"7","url":"http://www.telegraph.co.uk/foodanddrink/10840876/The-art-of-the-perfect-cup-of-tea.html"},
+		{"orden":"8","url":"http://www.teapalace.co.uk/"},
+		{"orden":"9","url":"http://www.wiltshiretea.co.uk/"},
+		{"orden":"10","url":"http://www.seriouseats.com/2015/02/best-tea-where-to-buy.html"}
 		]
 	}

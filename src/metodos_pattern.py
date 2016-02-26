@@ -14,5 +14,14 @@ def descargar_url(url):
     directorio = "Descargas/"+str(url.domain)+".txt"
     if rewrite:
         f = open('Descargas/'+str(url.domain)+".txt",'wb')
-        f.write(plaintext(url.download()))
+        contenido = plaintext(url.download())
+        f.write(contenido)
         f.close
+
+
+def descargar_url_contenido(url):
+    reload(sys)
+    sys.setdefaultencoding('utf8')
+    url = URL(url)
+    contenido = plaintext(url.download())
+    return contenido

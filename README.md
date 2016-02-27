@@ -8,4 +8,4 @@ Pattern for Clips. http://www.clips.ua.ac.be/pattern - pip install pattern
 Stemming. pip install stemming
 
 ## config ##
-Setear config en el archivo config.py
+Setear path en el archivo config.py

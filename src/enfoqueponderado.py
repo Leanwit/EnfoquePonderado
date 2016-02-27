@@ -49,7 +49,7 @@ def calcular_score_pattern(documento,consulta):
     acierto_negativo = 0
 
     diccionario_dominio = (open("Herramientas/diccionario_dominio.txt","r").read()).split()
-    for doc in documento.pattern.keywords(top=100):
+    for doc in documento.pattern.keywords(top=100,normalized=True):
         for termino_consulta in consulta:
             if doc[1] == termino_consulta:
                 acierto_clave += doc[0]

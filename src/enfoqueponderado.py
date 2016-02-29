@@ -4,6 +4,7 @@ from model.documento import *
 from src.metodos_pattern import *
 import json
 import os #Para recorrer dentro de una carpeta
+
 lista_documentos = []
 
 def calcular_score_pattern(documento,consulta):
@@ -13,6 +14,7 @@ def calcular_score_pattern(documento,consulta):
 
     diccionario_dominio = (open("Herramientas/diccionario_dominio.txt","r").read()).split()
     diccionario_dominio = Document(diccionario_dominio, stemmer = PORTER)
+    print diccionario_dominio.words
     # print consulta.words
     for doc in documento.pattern.keywords(top=200,normalized=True):
 

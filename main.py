@@ -14,7 +14,8 @@ var_json = json.load(archivo_json)
 print "Proyecto => " + var_json['id_proyecto']
 
 lista_documentos = []
-consulta = Document("tea quality in UK", stemmer = PORTER)
+consulta = Document("tea quality in UK", stemmer = PORTER) #Por defecto elimina stopwords
+print consulta.words
 opcion = raw_input("1. Json - 2. Prueba: ")
 if opcion == "1":
     lista_documentos  = opcion_json(consulta,var_json)

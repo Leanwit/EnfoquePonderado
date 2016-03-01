@@ -5,7 +5,13 @@ from config import *
 from enfoqueponderado import *
 import os.path
 import sys; sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
-# import string
+#import para descargar pdf
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+from cStringIO import StringIO
+
 
 
 def descargar_url(url):
@@ -22,8 +28,22 @@ def descargar_url(url):
 def descargar_url_contenido(url):
     reload(sys)
     sys.setdefaultencoding('utf8')
-    url = URL(url)
-    contenido = plaintext(url.download())
+    try:
+        url = URL(url)
+        if extension(url.page) == ".pdf":
+            f = open(url.domain + extension(url.page), 'wb') # save as test.gif
+            f.write(url.download())
+            f.close()
+            contenido = convert_pdf_to_txt(url.domain+'.pdf')
+            os.remove(url.domain + extension(url.page))
+        else:
+            contenido = plaintext(url.download(user_agent='Mozilla/5.0'))
+    except Exception, e:
+        print "Url: " + str(documento.url) + " - No se pudo descargar"
+        print str(e)
+        pass
+
+
     return contenido
 
 # No se utiliza debido al stemming de pattern
@@ -52,3 +72,23 @@ def palabrasvacias_stemming(cadena):
     cadena = eliminar_stop_words(cadena)
     cadena = stemming(cadena)
     return cadena
+
+def convert_pdf_to_txt(path):
+    rsrcmgr = PDFResourceManager()
+    retstr = StringIO()
+    codec = 'utf-8'
+    laparams = LAParams()
+    device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
+    fp = file(path, 'rb')
+    interpreter = PDFPageInterpreter(rsrcmgr, device)
+    password = ""
+    maxpages = 0
+    caching = True
+    pagenos=set()
+    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
+        interpreter.process_page(page)
+    fp.close()
+    device.close()
+    str = retstr.getvalue()
+    retstr.close()
+    return str

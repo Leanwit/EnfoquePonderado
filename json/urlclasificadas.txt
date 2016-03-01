@@ -9,6 +9,6 @@
 		{"orden":"7","url":"http://www.telegraph.co.uk/foodanddrink/10840876/The-art-of-the-perfect-cup-of-tea.html"},
 		{"orden":"8","url":"http://www.teapalace.co.uk/"},
 		{"orden":"9","url":"http://www.wiltshiretea.co.uk/"},
-		{"orden":"10","url":"http://www.seriouseats.com/2015/02/best-tea-where-to-buy.html"}
+		{"orden":"10","url":"http://www.jmlr.org/papers/volume13/desmedt12a/desmedt12a.pdf"}
 		]
 	}
